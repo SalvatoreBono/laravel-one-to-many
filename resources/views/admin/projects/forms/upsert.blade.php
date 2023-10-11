@@ -58,6 +58,22 @@
             @enderror
         </div>
         <div class="col-10">
+            <label for="inputDate" class="form-label">Tipologia</label>
+
+            <select class="form-select @error('type_id') is-invalid @enderror" aria-label="Default select example"
+                name="type_id">
+                <option selected>Scegli la tipologia di lavoro</option>
+                @foreach ($types as $type)
+                    {{-- {{ $project->type_id === $type->id ? 'selected' : '' }}  = se type_id è uguale a id dai selected altrimenti stringa vuota --}}
+                    <option value="{{ $type->id }}" {{ $project?->type_id === $type->id ? 'selected' : '' }}>
+                        {{ $type->type }}</option>
+                @endforeach
+            </select>
+            @error('type_id')
+                <div class="invalid_feedback">Il campo della tipologia è obbligatorio.</div>
+            @enderror
+        </div>
+        <div class="col-12">
             <label for="inputLanguage" class="form-label">Linguaggi</label>
             <input type="text"
                 class="form-control @error('language')

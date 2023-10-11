@@ -13,8 +13,10 @@
                     <a href="{{ $project['link'] }}">Link repo</a>
                     {{-- ->format('d/m/y') formattarla con il formato "giorno/mese/anno --}}
                     <div>{{ $project['date']->format('d/m/y') }}</div>
+
+                    <div>{{ $project->type->type }}</div>
                     {{--  "implode" unisce gli elementi dell'array in una singola stringa, separando ciascun elemento con il ", " --}}
-                    <div>Linguaggi utilizzati{{ implode(', ', $project['language']) }}</div>
+                    <div>Linguaggi utilizzati: {{ implode(', ', $project['language']) }}</div>
                     <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary">Show</a>
                 </div>
             </div>

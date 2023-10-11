@@ -22,5 +22,13 @@ class Project extends Model
         "link",
         "date",
         "language",
+        "type_id",
     ];
+
+    // Questo metodo verrà utilizzato per accedere alla relazione tra il modello Project e il modello Type.
+    public function type()
+    {
+        //Project appartiene a Type
+        return $this->belongsTo(Type::class);
+    }
 }

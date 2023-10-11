@@ -28,6 +28,8 @@ class ProjectStoreRequest extends FormRequest
             "link" => "required|string|max:255",
             "date" => "required|date",
             "language" => "required|string|max:255",
+            //exists: si assicura che l'id passato esista nella tabella types nella colonna id
+            "type_id" => "required|exists:types,id",
         ];
     }
     public function messages()
@@ -43,6 +45,7 @@ class ProjectStoreRequest extends FormRequest
             "date.required" => "Il campo della data è obbligatorio.",
             "language.required" => "Il campo dei linguaggi è obbligatorio.",
             "language.max" => "Lunghezza massima superata.",
+            "type_id.required" => "Il campo della tipologia è obbligatorio.",
         ];
     }
 }

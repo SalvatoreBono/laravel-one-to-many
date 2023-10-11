@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectStoreRequest;
 use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -26,8 +27,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $types = Type::all();
         //porta a una view per la creazione di un nuovo project
-        return view("admin.projects.create");
+        return view("admin.projects.create", compact("types"));
     }
 
     /**
@@ -75,11 +77,13 @@ class ProjectController extends Controller
     // è utilizzato per recuperare i dettagli di un singolo project specifico ed editarlo
     public function edit($slug)
     {
+        $types = Type::all();
+
         //una query dove lo slug corrispondente a $slug
         $project = Project::where("slug", $slug)->first();
 
         //porta a una view per la modifica di un project
-        return view("admin.projects.edit", compact("project"));
+        return view("admin.projects.edit", compact("project", "types"));
     }
 
     /**
