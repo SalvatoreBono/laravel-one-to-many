@@ -57,7 +57,7 @@
                 <div class="invalid_feedback">{{ $message }}</div>
             @enderror
         </div>
-        <div class="col-10">
+        <div class="col-3">
             <label for="inputDate" class="form-label">Tipologia</label>
 
             <select class="form-select @error('type_id') is-invalid @enderror" aria-label="Default select example"
@@ -70,10 +70,10 @@
                 @endforeach
             </select>
             @error('type_id')
-                <div class="invalid_feedback">Il campo della tipologia è obbligatorio.</div>
+                <div class="invalid_feedback">{{ $message }}.</div>
             @enderror
         </div>
-        <div class="col-12">
+        <div class="col-7">
             <label for="inputLanguage" class="form-label">Linguaggi</label>
             <input type="text"
                 class="form-control @error('language')

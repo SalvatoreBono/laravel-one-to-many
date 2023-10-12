@@ -45,7 +45,7 @@ class ProjectStoreRequest extends FormRequest
             "date.required" => "Il campo della data è obbligatorio.",
             "language.required" => "Il campo dei linguaggi è obbligatorio.",
             "language.max" => "Lunghezza massima superata.",
-            "type_id.required" => "Il campo della tipologia è obbligatorio.",
+            "type_id.exists" => "Il campo della tipologia è obbligatorio.",
         ];
     }
 }
